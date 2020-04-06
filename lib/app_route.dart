@@ -1,11 +1,14 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:fish_redux_app_go/routes/home_page/page.dart';
-import 'package:fish_redux_app_go/routes/my_pages/language_page/page.dart';
-import 'package:fish_redux_app_go/routes/my_pages/page.dart';
-import 'package:fish_redux_app_go/routes/tab_navigation_page/page.dart';
+import 'package:flutter_deer/routers/goods_page/page.dart';
+import 'package:flutter_deer/routers/login_pages/page.dart';
+import 'package:flutter_deer/routers/my_pages/page.dart';
+import 'package:flutter_deer/routers/my_pages/setting_pages/page.dart';
+import 'package:flutter_deer/routers/my_pages/setting_pages/theme_page/page.dart';
+import 'package:flutter_deer/routers/navigation_page/page.dart';
+import 'package:flutter_deer/routers/order_page/page.dart';
+import 'package:flutter_deer/routers/splash_page/page.dart';
 import 'global_store/state.dart';
 import 'global_store/store.dart';
-import 'routes/splash_page/page.dart';
 
 ///定义一个全局的route
 class AppRoute {
@@ -16,10 +19,13 @@ class AppRoute {
       _global = PageRoutes(
         pages: <String, Page<Object, dynamic>>{
           RoutePath.SPLASH_PAGE: SplashPage(),
-          RoutePath.TAB_NAVIGATION: TabNavigationPage(),
-          RoutePath.HOME: HomePage(),
+          RoutePath.LOGIN: LoginPage(),
+          RoutePath.NAVIGATION: NavigationPage(),
+          RoutePath.ORDER: OrderPage(),
+          RoutePath.GODDS: GoodsPage(),
+          RoutePath.SETTING: SettingPage(),
           RoutePath.MY: MyPage(),
-          RoutePath.LANGUAGE: LanguagePage()
+          RoutePath.THEMT: ThemePage()
         },
         visitor: (String path, Page<Object, dynamic> page) {
           /// 只有特定的范围的Page才需要建立和AppStore的连接关系
@@ -81,15 +87,28 @@ class RoutePath {
   ///引导页
   static const SPLASH_PAGE = "splash_page";
 
-  ///导航页
-  static const TAB_NAVIGATION = "tab_navigation_page";
+  ///login
+  static const LOGIN = "login_page";
 
   ///首页
-  static const HOME = "home_page";
+  static const APP_HOME = "app_home";
+  static const HOME = "home";
+  static const NAVIGATION = "navigation_page";
 
-  ///我的
+  ///订单
+  static const ORDER = "order_page";
+
+  ///商品
+  static const GODDS = "goods_page";
+
+  //我的
   static const MY = "my_page";
-  static const LANGUAGE = "language_page";
+
+  //设置
+  static const SETTING = "setting_page";
+
+  ///设置主题
+  static const THEMT = "theme_page";
 }
 
 /// 简单的Effect AOP
@@ -112,6 +131,7 @@ EffectMiddleware<T> _pageAnalyticsMiddleware<T>({String tag = 'redux'}) {
 ViewMiddleware<T> _pageViewMiddleware<T>({String tag = 'redux'}) {
   return (AbstractLogic<dynamic> logic, Store<T> store) {
     return (ViewBuilder<dynamic> effect) {
+      println("这个是什时候执行-------------");
       //UnifiedThemeStyles.setStatusBarWhiteForeground(false);
     };
   };

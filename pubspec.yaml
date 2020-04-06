@@ -12,8 +12,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
  
   # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
   oktoast: ^2.3.1+1
@@ -63,6 +61,18 @@ dependencies:
   barcode_scan:
     git:
       url: https://github.com/simplezhli/flutter_barcode_reader.git
+  fish_redux: ^0.3.1
+  #适配
+  flutter_screenutil: ^0.5.2
+  #国际化
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.16.0
+  intl_translation: ^0.17.2
+  #状态栏颜色
+  flutter_statusbarcolor: any
+  fluttertoast: ^3.1.3
+  flutter_spinkit: ^4.1.1+1
   
 dev_dependencies:
   # Widget测试

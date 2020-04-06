@@ -1,7 +1,7 @@
 import 'dart:ui';
-
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart' hide Action;
+import 'package:fish_redux/fish_redux.dart' as prefix0;
+import 'package:flutter/material.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -9,20 +9,27 @@ import 'state.dart';
 Reducer<GlobalState> buildReducer() {
   return asReducer(
     <Object, Reducer<GlobalState>>{
-      GlobalAction.changeThemeColor: _onchangeThemeColor,
+      GlobalAction.changeThemeColor: _changeThemeColor,
+      GlobalAction.changelanguage: _changeLanguage,
+      GlobalAction.changeAtNight: _changeAtNight,
     },
   );
 }
 
-List<Color> _colors = <Color>[
-  Colors.green,
-  Colors.red,
-  Colors.black,
-  Colors.blue
-];
+GlobalState _changeThemeColor(GlobalState state, prefix0.Action action) {
+  int _themeColorIndex = action.payload;
+  return state.clone();
+}
 
-GlobalState _onchangeThemeColor(GlobalState state, Action action) {
-  final Color next =
-      _colors[((_colors.indexOf(state.themeColor) + 1) % _colors.length)];
-  return state.clone()..themeColor = next;
+GlobalState _changeLanguage(GlobalState state, prefix0.Action action) {
+  GlobalState _globalState = state.clone();
+  String _lanauage = action.payload;
+  _globalState.languageLocale = Locale(_lanauage, " ");
+  return _globalState;
+}
+
+GlobalState _changeAtNight(GlobalState state, prefix0.Action action) {
+  bool _atNight = action.payload;
+//  _atNight ? Screen.setBrightness(0.3) : Screen.setBrightness(-1);
+  return state.clone()..isAtNight = _atNight;
 }
