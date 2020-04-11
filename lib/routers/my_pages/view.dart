@@ -62,7 +62,7 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                 children: <Widget>[
                   const SizedBox(width: double.infinity, height: 56.0),
                   const Text(
-                    '官方直营店',
+                    'Test',
                     style: TextStyles.textBold24,
                   ),
                   Positioned(

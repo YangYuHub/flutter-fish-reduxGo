@@ -1,11 +1,23 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_deer/global_store/state.dart';
 
-class ThemeState implements Cloneable<ThemeState> {
+class ThemeState implements GlobalBaseState<ThemeState> {
+  
+  @override
+  int theme;
 
   @override
   ThemeState clone() {
-    return ThemeState();
+    return ThemeState()
+      ..theme = theme;
   }
+
+  @override
+  bool isAtNight;
+
+  @override
+  Locale languageLocale;
 }
 
 ThemeState initState(Map<String, dynamic> args) {

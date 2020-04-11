@@ -1,0 +1,28 @@
+{
+    "@@last_modified": "2020-04-08T15:07:04.422412",
+    "title": "Flutter 中文",
+    "@title": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "language": "语言",
+    "@language": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "en": "English",
+    "@en": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "zh": "中文",
+    "@zh": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "auto": "跟随系统",
+    "@auto": {
+      "type": "text",
+      "placeholders": {}
+    }
+  }

@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flui/flui.dart';
 import 'package:flutter_deer/store/store_router.dart';
 import 'package:flutter_deer/common/common.dart';
 import 'package:flutter_deer/util/utils.dart';
@@ -56,15 +57,32 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
           hintText: '请输入密码',
         ),
         Gaps.vGap24,
-        MyButton(
-          key: const Key('login'),
-          onPressed: () {
-            return state.isClick
-                ? dispatch(LoginActionCreator.onLogin())
-                : null;
-          },
-          text: '登录',
-        ),
+        // MyButton(
+        //   key: const Key('login'),
+        //   onPressed: () {
+        //     return state.isClick
+        //         ? dispatch(LoginActionCreator.onLogin())
+        //         : null;
+        //   },
+        //   text: '登录',
+        // ),
+        FLLoadingButton(
+            child: Text('Login'),
+            color: Color(0xFF0F4C81),
+            disabledColor: Color(0xFF0F4C81),
+            indicatorColor: Colors.white,
+            textColor: Colors.white,
+            loading: state.loading ?? false,
+            minWidth: 200,
+            indicatorOnly: true,
+            onPressed: () {
+              // setState(() => _loading = true);
+              dispatch(LoginActionCreator.onLoading(true));
+              Future.delayed(Duration(seconds: 3), () {
+                dispatch(LoginActionCreator.onLoading(false));
+                dispatch(LoginActionCreator.onLogin());
+              });
+            }),
         Container(
           height: 40.0,
           alignment: Alignment.centerRight,

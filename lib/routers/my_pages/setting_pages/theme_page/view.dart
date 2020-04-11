@@ -1,5 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_deer/common/common.dart';
+import 'package:flutter_deer/common/constants/global_theme_styles.dart';
+import 'package:flutter_deer/global_store/action.dart';
+import 'package:flutter_deer/global_store/store.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flustars/flustars.dart' as flutter_stars;
 import 'package:flutter/material.dart';
@@ -23,9 +26,13 @@ Widget buildView(ThemeState state, Dispatch dispatch, ViewService viewService) {
       break;
   }
   return Scaffold(
-    appBar: const MyAppBar(
+    appBar: MyAppBar(
+      backgroundColor: GlobalThemeStyles.backGroundColor[state.theme],
       title: '夜间模式',
+      titleColor: GlobalThemeStyles.baseTitleColor[state.theme],
+      iconColor: GlobalThemeStyles.baseTitleColor[state.theme],
     ),
+    backgroundColor:GlobalThemeStyles.backGroundColor[state.theme],
     body: ListView.separated(
         shrinkWrap: true,
         itemCount: _list.length,
@@ -34,7 +41,10 @@ Widget buildView(ThemeState state, Dispatch dispatch, ViewService viewService) {
         },
         itemBuilder: (_, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              GlobalStore.store
+                  .dispatch(GlobalActionCreator.changeThemeColor(index));
+            },
             child: Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -42,7 +52,7 @@ Widget buildView(ThemeState state, Dispatch dispatch, ViewService viewService) {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text(_list[index]),
+                    child: Text(_list[index],style: TextStyle(color:GlobalThemeStyles.baseTitleColor[state.theme] ),),
                   ),
                   Opacity(
                       opacity: themeMode == _list[index] ? 1 : 0,

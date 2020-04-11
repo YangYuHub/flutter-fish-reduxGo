@@ -1,0 +1,33 @@
+{
+  "@@last_modified": "2020-04-08T16:36:11.363525",
+  "title": "FlexLend",
+  "@title": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "Github",
+  "@home": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "language": "language",
+  "@language": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "en": "en",
+  "@en": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "zh": "zh",
+  "@zh": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "auto": "auto",
+  "@auto": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

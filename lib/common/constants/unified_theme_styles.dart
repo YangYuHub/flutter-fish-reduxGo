@@ -21,11 +21,11 @@ class UnifiedThemeStyles {
   ];
 
   ///主题色
-  static Color themeColor = WHITE;
-  static Locale themeLocale = Locale('zh', 'CN');
+  static Color themeColor = _VIOLET;
+  static Locale themeLocale =Locale('zh', 'CN');
 
   ///title默认背景色
-  static Color scaffoldAppBarColor = WHITE;
+  static Color scaffoldAppBarColor = _VIOLET;
   static Color scaffoldAppBarWidgetColor = WHITE;
 
   ///scaffold默认背景色
@@ -48,6 +48,10 @@ class UnifiedThemeStyles {
 
   ///图片加载失败颜色
   static Color defultImgError = PLACEHOLDER_GRAY;
+
+
+  //Lend 主题颜色
+  // static const Color _VIOLET = const Color(0xFF68129A);
 
   ///常用颜色
   static const Color _VIOLET = const Color(0xFF68129A);

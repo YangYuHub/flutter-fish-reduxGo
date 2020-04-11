@@ -1,20 +1,20 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 
 class ClickItem extends StatelessWidget {
-
-  const ClickItem({
-    Key key,
-    this.onTap,
-    @required this.title,
-    this.content: '',
-    this.textAlign: TextAlign.start,
-    this.maxLines: 1
-  }): super(key: key);
+  const ClickItem(
+      {Key key,
+      this.onTap,
+      @required this.title,
+      this.titleColor,
+      this.content: '',
+      this.textAlign: TextAlign.start,
+      this.maxLines: 1})
+      : super(key: key);
 
   final GestureTapCallback onTap;
   final String title;
+  final Color titleColor;
   final String content;
   final TextAlign textAlign;
   final int maxLines;
@@ -26,32 +26,35 @@ class ClickItem extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(left: 15.0),
         padding: const EdgeInsets.fromLTRB(0, 15.0, 15.0, 15.0),
-        constraints: BoxConstraints(
-            maxHeight: double.infinity,
-            minHeight: 50.0
-        ),
+        constraints:
+            BoxConstraints(maxHeight: double.infinity, minHeight: 50.0),
         width: double.infinity,
         decoration: BoxDecoration(
             border: Border(
-              bottom: Divider.createBorderSide(context, width: 0.6),
-            )
-        ),
+          bottom: Divider.createBorderSide(context, width: 0.6),
+        )),
         child: Row(
           //为了数字类文字居中
-          crossAxisAlignment: maxLines == 1 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+          crossAxisAlignment: maxLines == 1
+              ? CrossAxisAlignment.center
+              : CrossAxisAlignment.start,
           children: <Widget>[
-            Text(title),
+            Text(
+              title,
+              style: TextStyle(color: titleColor),
+            ),
             const Spacer(),
             Gaps.hGap16,
             Expanded(
               flex: 4,
-              child: Text(
-                content,
-                maxLines: maxLines,
-                textAlign: maxLines == 1 ? TextAlign.right : textAlign,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp14)
-              ),
+              child: Text(content,
+                  maxLines: maxLines,
+                  textAlign: maxLines == 1 ? TextAlign.right : textAlign,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle
+                      .copyWith(fontSize: Dimens.font_sp14)),
             ),
             Gaps.hGap8,
             Opacity(

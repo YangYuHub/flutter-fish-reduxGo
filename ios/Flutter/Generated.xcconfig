@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/robert/coinflex/flutter
-FLUTTER_APPLICATION_PATH=/Users/robert/coinflex/flutter-fish-reduxGo
-FLUTTER_TARGET=/Users/robert/coinflex/flutter-fish-reduxGo/lib/main.dart
+FLUTTER_APPLICATION_PATH=/Users/robert/coinflex/lending-app的副本
+FLUTTER_TARGET=/Users/robert/coinflex/lending-app的副本/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/robert/coinflex/flutter/bin/cache/artifacts/engine/ios

@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:fish_redux/fish_redux.dart';
 
-enum GlobalAction { changeThemeColor, changelanguage ,changeAtNight}
+enum GlobalAction { changeThemeColor, changelanguage}
 
 class GlobalActionCreator {
   static Action changeThemeColor(int i) {
@@ -13,7 +13,4 @@ class GlobalActionCreator {
     return Action(GlobalAction.changelanguage, payload: language);
   }
 
-//  static Action changeAtNight(bool atNight) {
-//    return Action(GlobalAction.changeAtNight, payload: atNight);
-//  }
 }

@@ -1,8 +1,8 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/robert/coinflex/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/robert/coinflex/flutter-fish-reduxGo"
-export "FLUTTER_TARGET=/Users/robert/coinflex/flutter-fish-reduxGo/lib/main.dart"
+export "FLUTTER_APPLICATION_PATH=/Users/robert/coinflex/lending-app的副本"
+export "FLUTTER_TARGET=/Users/robert/coinflex/lending-app的副本/lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "SYMROOT=${SOURCE_ROOT}/../build/ios"
 export "FLUTTER_FRAMEWORK_DIR=/Users/robert/coinflex/flutter/bin/cache/artifacts/engine/ios"

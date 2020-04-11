@@ -1,0 +1,28 @@
+{
+  "@@last_modified": "2020-04-08T15:07:04.422412",
+  "title": "Flutter",
+  "@title": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "language": "Language",
+  "@language": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "en": "English",
+  "@en": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "zh": "简体中文",
+  "@zh": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "auto": "auto",
+  "@auto": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

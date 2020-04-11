@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: me.ithome.android.geetest:geetestlib:4.1.6_20191107@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f2e395386776be2ee7b852cf432a722/jetified-geetestlib-4.1.6_20191107/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f2e395386776be2ee7b852cf432a722/jetified-geetestlib-4.1.6_20191107/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.ithome.android.geetest/geetestlib/4.1.6_20191107/7977c0854cd6d28d65978c08567a164445536d68/geetestlib-4.1.6_20191107-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.ithome.android.geetest/geetestlib/4.1.6_20191107/dbfc945b058cffd4f910164baed3d8b13b5bc0a9/geetestlib-4.1.6_20191107-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

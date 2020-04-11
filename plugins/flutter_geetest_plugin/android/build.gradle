@@ -1,0 +1,41 @@
+group 'me.ithome.flutter_geetest_plugin'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://www.jitpack.io' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://www.jitpack.io' }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+dependencies {
+    api 'me.ithome.android.geetest:geetestlib:4.1.6_20191107'
+    api 'com.tencent.tbs.tbssdk:sdk:43697'
+    api 'com.squareup.okhttp3:okhttp:4.2.2'
+}

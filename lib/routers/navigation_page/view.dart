@@ -28,7 +28,7 @@ class TabNavigation extends StatefulWidget {
 class _TabNavigationState extends State<TabNavigation> {
   final _defautColor = Colors.grey;
   final _activeColor = Color.fromRGBO(125, 80, 219, 1);
-  int _currentIndex = 3;
+  int _currentIndex = 0;
   final PageController _controller = PageController(
     initialPage: 0,
   );
@@ -55,7 +55,7 @@ class _TabNavigationState extends State<TabNavigation> {
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
           MainBottomPagesLoadMode(
-              AppRoute.global.buildPage(RoutePath.SETTING, null), ""),
+              AppRoute.global.buildPage(RoutePath.GODDS, null), ""),
           MainBottomPagesLoadMode(
               AppRoute.global.buildPage(RoutePath.GODDS, null), ""),
           MainBottomPagesLoadMode(

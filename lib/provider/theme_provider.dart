@@ -52,7 +52,7 @@ class ThemeProvider extends ChangeNotifier {
       textSelectionColor: Colours.app_main.withAlpha(70),
       textSelectionHandleColor: Colours.app_main,
       textTheme: TextTheme(
-        // TextField输入文字颜色
+        // TextField输入文字颜色从前有座山，山里有
         subhead: isDarkMode ? TextStyles.textDark : TextStyles.text,
         // Text文字样式
         body1: isDarkMode ? TextStyles.textDark : TextStyles.text,

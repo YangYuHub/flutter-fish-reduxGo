@@ -2,6 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_deer/routers/goods_page/page.dart';
 import 'package:flutter_deer/routers/login_pages/page.dart';
 import 'package:flutter_deer/routers/my_pages/page.dart';
+import 'package:flutter_deer/routers/my_pages/setting_pages/language_page/page.dart';
 import 'package:flutter_deer/routers/my_pages/setting_pages/page.dart';
 import 'package:flutter_deer/routers/my_pages/setting_pages/theme_page/page.dart';
 import 'package:flutter_deer/routers/navigation_page/page.dart';
@@ -25,7 +26,8 @@ class AppRoute {
           RoutePath.GODDS: GoodsPage(),
           RoutePath.SETTING: SettingPage(),
           RoutePath.MY: MyPage(),
-          RoutePath.THEMT: ThemePage()
+          RoutePath.THEMT: ThemePage(),
+          RoutePath.LANGUAGE: LanguagePage()
         },
         visitor: (String path, Page<Object, dynamic> page) {
           /// 只有特定的范围的Page才需要建立和AppStore的连接关系
@@ -35,17 +37,26 @@ class AppRoute {
             /// 1. 参数1 AppStore
             /// 2. 参数2 当 AppStore.state 变化时, PageStore.state 该如何变化
             page.connectExtraStore<GlobalState>(
-              GlobalStore.store,
+             GlobalStore.store,
               (Object pagestate, GlobalState appState) {
                 final GlobalBaseState p = pagestate;
-                if (p.themeColor != appState.themeColor) {
+                if (p.theme != appState.theme) {
                   if (pagestate is Cloneable) {
                     final Object copy = pagestate.clone();
                     final GlobalBaseState newState = copy;
-                    newState.themeColor = appState.themeColor;
+                    newState.theme = appState.theme;
                     return newState;
                   }
                 }
+                if (p.languageLocale != appState.languageLocale) {
+                  if (pagestate is Cloneable) {
+                    final Object copy = pagestate.clone();
+                    final GlobalBaseState newState = copy;
+                    newState.languageLocale = appState.languageLocale;
+                    return newState;
+                  }
+                }
+
                 return pagestate;
               },
             );
@@ -109,6 +120,9 @@ class RoutePath {
 
   ///设置主题
   static const THEMT = "theme_page";
+
+  ///设置主题
+  static const LANGUAGE = "language_page";
 }
 
 /// 简单的Effect AOP
@@ -118,7 +132,6 @@ EffectMiddleware<T> _pageAnalyticsMiddleware<T>({String tag = 'redux'}) {
     return (Effect<dynamic> effect) {
       return (Action action, Context<dynamic> ctx) {
         if (logic is Page<dynamic, dynamic> && action.type is Lifecycle) {
-          println("所以打印的是什么呢");
           println(logic.toString());
           print('${logic.runtimeType} ${action.type.toString()}');
         }
@@ -131,7 +144,6 @@ EffectMiddleware<T> _pageAnalyticsMiddleware<T>({String tag = 'redux'}) {
 ViewMiddleware<T> _pageViewMiddleware<T>({String tag = 'redux'}) {
   return (AbstractLogic<dynamic> logic, Store<T> store) {
     return (ViewBuilder<dynamic> effect) {
-      println("这个是什时候执行-------------");
       //UnifiedThemeStyles.setStatusBarWhiteForeground(false);
     };
   };
